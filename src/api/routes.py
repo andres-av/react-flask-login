@@ -59,7 +59,7 @@ def register():
     userRegister = User.query.filter_by(email=email).first()
 
     if userRegister: 
-        return jsonify({"msg": "usuario ya registrado"}), 401
+        return jsonify({"msg": "Este email ya pertenece a un usuario"}), 401
     else:
         new_email= User(email=email , password=password , is_active = True)
         db.session.add(new_email)
